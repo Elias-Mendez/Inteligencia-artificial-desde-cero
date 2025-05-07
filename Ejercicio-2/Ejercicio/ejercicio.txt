@@ -1,0 +1,122 @@
+🧠 Tarea del Día — Turno 10
+Título: Diseño de Arquitectura Autoevolutiva Multicapa con Memoria Dinámica
+
+🎯 Objetivo Específico
+Implementar un sistema de Inteligencia Artificial capaz de rediseñar iterativamente su propia arquitectura interna en función de su rendimiento sobre tareas complejas, integrando un mecanismo de memoria dinámica episódica y una capa de evolución estructural controlada por metaaprendizaje. Este sistema debe optimizar su topología, hiperparámetros y estrategia de aprendizaje mediante un algoritmo evolutivo supervisado por su desempeño en un entorno de razonamiento multimodal.
+
+🧠 Explicación Mínima
+A diferencia de las arquitecturas estáticas de los LLM actuales, el verdadero avance de una IA general radica en su capacidad de reconfigurar internamente sus propios mecanismos en respuesta a la complejidad cambiante del entorno. Esta tarea introduce un marco de auto-evolución estructural basado en la ejecución de un ciclo iterativo: percepción, evaluación, reescritura arquitectónica, reevaluación. El sistema incorpora además una memoria de decisiones anteriores, permitiendo una evolución informada y no estocástica.
+
+🧩 Pasos Concretos
+Entorno inicial y librerías
+
+bash
+Copiar código
+pip install torch deap optuna einops networkx wandb
+Diseño de la arquitectura base mutable
+
+Define una clase MutableNet en PyTorch que permita modificar:
+
+número de capas
+
+tipo de activaciones
+
+conexiones cruzadas (skip connections aleatorias)
+
+topología de atención local/global
+
+Ejemplo (simplificado):
+
+python
+Copiar código
+class MutableNet(nn.Module):
+    def __init__(self, genome):
+        super().__init__()
+        self.layers = nn.ModuleList()
+        for gene in genome:
+            self.layers.append(self.build_layer(gene))
+    def build_layer(self, gene):
+        # gene = (layer_type, width, act_fn)
+        ...
+    def forward(self, x):
+        ...
+Módulo de evolución estructural (Neuroevolution)
+
+Usa DEAP o Optuna para definir una población de genomas que representan arquitecturas.
+
+Cada genoma incluye configuraciones estructurales (código tipo DSL).
+
+Criterio de fitness: desempeño sobre una tarea de razonamiento multimodal (por ejemplo, VQA o lenguaje + audio + código).
+
+Memoria episódica de decisiones
+
+Implementa una memoria tipo ExperienceReplay con estructuras tipo árbol de decisiones.
+
+Guarda:
+
+arquitectura usada
+
+resultados obtenidos
+
+mutaciones aplicadas
+
+tiempo de entrenamiento/convergencia
+
+Evalúa similitud entre arquitecturas por métrica gráfica (e.g. Graph Edit Distance).
+
+Reescritura guiada por memoria
+
+Implementa un algoritmo de reescritura estructural asistido por la memoria.
+
+Si un patrón arquitectónico fue exitoso en condiciones similares, reutilízalo como “template” base.
+
+Agrega penalizaciones por complejidad innecesaria.
+
+Entrenamiento de arquitectura elegida
+
+Entrena durante 10–20 epochs en un conjunto de tareas integradas (por ejemplo, CLEVR, GQA, Language-Conditioned Control).
+
+Evalúa capacidad de razonamiento composicional, generalización y uso eficiente de parámetros.
+
+Ciclo evolutivo recurrente
+
+Ejecuta al menos 5 generaciones de evolución estructural.
+
+Compara desempeño frente a modelos fijos de referencia (Transformer base, ResNet combinada, etc.).
+
+Guarda la mejor arquitectura junto a su trazabilidad en memoria.
+
+🛠 Herramientas Necesarias
+PyTorch: entrenamiento y definición de arquitecturas.
+
+DEAP / Optuna: evolución y optimización de arquitectura.
+
+NetworkX / Graphviz: análisis estructural de arquitecturas.
+
+Weights & Biases (wandb): logging estructural y resultados.
+
+Datasets: CLEVR, GQA, NLVR2 o tarea multimodal generada ad hoc.
+
+📈 Nivel de Exigencia
+10/10 — La tarea implica diseñar un sistema auto-recursivo que combine computación evolutiva, optimización bayesiana, estructura de red neuronal adaptable, e integración de memoria semántica episódica. Este enfoque supera el modelo actual de entrenamiento estático por lotes e introduce un marco evolutivo continuo, al estilo de sistemas biológicos complejos.
+
+📚 Recursos de Apoyo
+Paper: Neural Architecture Search with Reinforcement Learning (Zoph & Le, Google Brain)
+https://arxiv.org/abs/1611.01578
+
+Paper: PathNet: Evolution Channels Transfer Learning in Deep Neural Networks
+https://arxiv.org/abs/1701.08734
+
+Repo: AutoML-Zero: Search Space of ML Algorithms (Google Brain)
+https://github.com/google-research/automlzero
+
+✅ Criterio de Finalización
+Implementación funcional de un sistema que pueda rediseñar y evaluar su arquitectura de forma autónoma.
+
+Memoria episódica trazable con aprendizaje de patrones evolutivos exitosos.
+
+Mejora progresiva de desempeño en una o varias tareas multimodales.
+
+Comparación objetiva contra modelos estáticos en al menos dos métricas (accuracy, eficiencia de parámetros, capacidad de razonamiento abstracto).
+
+📅 Tarea generada como parte del programa de entrenamiento para arquitectos de IA avanzada con aspiraciones de superar el marco conceptual actual de OpenAI y DeepMind.

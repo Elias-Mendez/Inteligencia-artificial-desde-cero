@@ -42,17 +42,19 @@ Es como leer un párrafo y saber de un vistazo qué palabra conecta con cuál, s
 
 
 
-- 
+- red neuronal: Una red neuronal es un sistema que aprende a hacer tareas imitando cómo piensa el cerebro, usando muchas pequeñas unidades conectadas que procesan información juntas.
 
 
 
 
-- 
+- PyTorch: Es una herramienta que permite crear y entrenar modelos de inteligencia artificial de forma fácil y flexible, usando principalmente el lenguaje de programación Python.
 
 
 
 
-- 
+- Genoma: Un genoma es el conjunto completo de instrucciones que tiene un ser vivo para funcionar, como si fuera el "manual" que dice cómo está hecho y cómo trabaja.
+
+
 
 
 
